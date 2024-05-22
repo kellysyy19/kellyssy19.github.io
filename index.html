@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(250, 212, 218);">
+    <form action="post" name="clientes_formulario" id="formulario">
+        <fieldset>
+            <legend>trabalhe conosco</legend>
+            <label for="id_nome">nome completo
+                <input type="text"
+                name="nome"
+               id="id_nome"
+               required
+               placeholder="informe seu nome"
+               minlength="5"
+               maxlength="40"
+                />
+            </label>
+
+            <p>vagas disponíveis:</p>
+            <label for="id_html">Dev Front-end JR:
+                <input type="radio" name="checkbox" value="html" id="id_html">
+            </label>
+            <label for="id_type">Designer:
+                <input type="radio" name="checkbox" value="css" id="id_css">
+            </label>
+            <label for="id_js">Administrador:
+                <input type="radio" name="checkbox" value="js" id="id_js">
+            </label>
+
+            <p>habilidades:</p>
+            <label for="id_html">HTML5:
+                <input type="checkbox" name="checkbox" value="html" id="id_html">
+            </label>
+            <label for="id_type">CSS3:
+                <input type="checkbox" name="checkbox" value="css" id="id_css">
+            </label>
+            <label for="id_js">Javascript:
+                <input type="checkbox" name="checkbox" value="js" id="id_js">
+            </label>
+
+           
+            <div>
+                <label for="id_textearea">Cursos:
+<textarea name="cursos_textarea" id="id_textearea"
+cols="30" rows="4"></textarea>
+                </label>
+            </div>
+            <div>
+                <button type="submit">enviar</button>
+              </div>
+        </fieldset>
+
+    </form>
+    <script type="module">
+
+        // Importação
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js&quot";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js&quot";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js&quot";
+        
+        const firebaseConfig = {
+
+apiKey: "AIzaSyA0EJq_1e8MyzrCnjASSjCquLSMNpPUdFY",
+
+authDomain: "isacoquete.firebaseapp.com",
+
+databaseURL: "https://isacoquete-default-rtdb.firebaseio.com",
+
+projectId: "isacoquete",
+
+storageBucket: "isacoquete.appspot.com",
+
+messagingSenderId: "241035745508",
+
+appId: "1:241035745508:web:139cf66f7fb51d84c334f1",
+
+measurementId: "G-WQFZNFL1S0"
+
+};
+
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase();
+        </script>
+   
+<script>
+
+    
+   let form = document.getElementById("formulario")
+   form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    let nome = form.nome.value
+    let vagas = [];
+    let habilidades = [];
+   
+
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
+        vagas.push(checkbox.value);
+    });
+
+    document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
+        if (radio.name === "radio") {
+            estadoCivil = radio.value;
+        } else {
+            habilidades.push(radio.value);
+        }
+    });
+
+    let cursos = form.cursos_textarea.value;
+
+    console.log("Nome:", nome);
+    console.log("Vagas:", vagas.join(", "));
+    console.log("Habilidades:", habilidades.join(", "));
+   
+    console.log("Cursos:", cursos);
+
+    alert(
+    "Nome: " + nome + "\n" +
+    "Vagas: " + vagas.join(", ") + "\n" +
+    "Habilidades: " + habilidades.join(", ") + "\n" +
+   
+    "Cursos: " + cursos
+);
+});
+    
+
+</script>
+
+  
+</body>
+</html>
