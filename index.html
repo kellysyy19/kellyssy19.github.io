@@ -93,6 +93,7 @@ measurementId: "G-WQFZNFL1S0"
 
 };
 
+
         
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -109,7 +110,7 @@ measurementId: "G-WQFZNFL1S0"
     let nome = form.nome.value
     let vagas = [];
     let habilidades = [];
-   
+   let data = []
 
     document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
         vagas.push(checkbox.value);
@@ -128,14 +129,14 @@ measurementId: "G-WQFZNFL1S0"
     console.log("Nome:", nome);
     console.log("Vagas:", vagas.join(", "));
     console.log("Habilidades:", habilidades.join(", "));
-   
+    console.log("data:", data);
     console.log("Cursos:", cursos);
 
     alert(
     "Nome: " + nome + "\n" +
     "Vagas: " + vagas.join(", ") + "\n" +
     "Habilidades: " + habilidades.join(", ") + "\n" +
-   
+    "data: " + data.value + "\n" +
     "Cursos: " + cursos
 );
 });
