@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>form</title>
 </head>
 <body style="background-color: rgb(250, 212, 218);">
     <form action="post" name="clientes_formulario" id="formulario">
@@ -110,8 +110,7 @@ measurementId: "G-WQFZNFL1S0"
     let nome = form.nome.value
     let vagas = [];
     let habilidades = [];
-   let data = []
-
+    let data = form.data.value;
     document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
         vagas.push(checkbox.value);
     });
@@ -129,14 +128,14 @@ measurementId: "G-WQFZNFL1S0"
     console.log("Nome:", nome);
     console.log("Vagas:", vagas.join(", "));
     console.log("Habilidades:", habilidades.join(", "));
-    console.log("data:", data);
+    console.log("Data de Nascimento:", data);
     console.log("Cursos:", cursos);
 
     alert(
     "Nome: " + nome + "\n" +
     "Vagas: " + vagas.join(", ") + "\n" +
     "Habilidades: " + habilidades.join(", ") + "\n" +
-    "data: " + data.value + "\n" +
+    "Data de Nascimento: " + dataDeNascimento + "\n" +
     "Cursos: " + cursos
 );
 });
